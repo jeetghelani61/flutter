@@ -1,15 +1,14 @@
-import 'dart:io';
+// task_5.dart
 void main() {
-   print("enter the your choice no:");
-   var i=int.parse(stdin.readLineSync().toString());
+  for (int i = 1; i <= 100; i++) {
     if (i % 3 == 0 && i % 5 == 0) {
-      print("FizzBuzz");
+      print('FizzBuzz');
     } else if (i % 3 == 0) {
-      print("Fizz");
+      print('Fizz');
     } else if (i % 5 == 0) {
-      print("Buzz");
+      print('Buzz');
     } else {
-      print("not supported number");
+      print(i);
     }
   }
-
+}

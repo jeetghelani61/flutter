@@ -1,27 +1,25 @@
+// task_7.dart
 import 'dart:io';
 
 void main() {
-var num, i, flag = 0;
+  print('Enter a number to check if it is prime:');
+  int number = int.parse(stdin.readLineSync()!);
+  bool isPrime = true;
 
-print("Enter a number: ");
-
-
-if (num <= 1) {
-print(" is not a prime number. $num");
-
-}
-
-for (i = 2; i <= num / 2; i++) {
-if (num % i == 0) {
-flag = 1;
-break;
-}
-}
-
-if ( flag == 0)
-print("is a prime number. $num");
-else
-print("is not a prime number. $num");
-
-
+  if (number <= 1) {
+    isPrime = false;
+  } else {
+    for (int i = 2; i <= number / 2; i++) {
+      if (number % i == 0) {
+        isPrime = false;
+        break;
+      }
+    }
+  }
+  
+  if (isPrime) {
+    print('$number is a prime number.');
+  } else {
+    print('$number is not a prime number.');
+  }
 }

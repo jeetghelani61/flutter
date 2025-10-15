@@ -1,53 +1,51 @@
+// task_19.dart
+// Superclass
 class Vehicle {
   String type;
   String fuelType;
-  int maxSpeed;
-  
-  Vehicle(this.type, this.fuelType, this.maxSpeed);
-  
+
+  Vehicle(this.type, this.fuelType);
+
   void displayDetails() {
     print('Vehicle Type: $type');
     print('Fuel Type: $fuelType');
+  }
+}
+
+// Subclass Car
+class Car extends Vehicle {
+  int maxSpeed;
+
+  Car(String fuelType, this.maxSpeed) : super('Car', fuelType);
+
+  @override
+  void displayDetails() {
+    super.displayDetails(); // Call parent method
     print('Max Speed: $maxSpeed km/h');
   }
 }
 
-class Car extends Vehicle {
-  int doors;
-  String transmission;
-  
-  Car(String fuelType, int maxSpeed, this.doors, this.transmission)
-      : super('Car', fuelType, maxSpeed);
-  
-  @override
-  void displayDetails() {
-    super.displayDetails();
-    print('Doors: $doors');
-    print('Transmission: $transmission');
-    print('---');
-  }
-}
-
+// Subclass Bike
 class Bike extends Vehicle {
-  bool hasCarrier;
-  String bikeType;
-  
-  Bike(String fuelType, int maxSpeed, this.hasCarrier, this.bikeType)
-      : super('Bike', fuelType, maxSpeed);
-  
+  int maxSpeed;
+
+  Bike(String fuelType, this.maxSpeed) : super('Bike', fuelType);
+
   @override
   void displayDetails() {
-    super.displayDetails();
-    print('Has Carrier: $hasCarrier');
-    print('Bike Type: $bikeType');
-    print('---');
+    super.displayDetails(); // Call parent method
+    print('Max Speed: $maxSpeed km/h');
   }
 }
 
-void vehicleDemo() {
-  Car car = Car('Petrol', 220, 4, 'Automatic');
-  Bike bike = Bike('Petrol', 180, true, 'Sports');
+void main() {
+  Car myCar = Car('Petrol', 200);
+  print('--- Car Details ---');
+  myCar.displayDetails();
   
-  car.displayDetails();
-  bike.displayDetails();
+  print(''); // For spacing
+  
+  Bike myBike = Bike('Electric', 120);
+  print('--- Bike Details ---');
+  myBike.displayDetails();
 }

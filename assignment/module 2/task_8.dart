@@ -1,46 +1,41 @@
-import"dart:io";
-void main()
-{
-  print("press 1 for addition");
-  print("press 2 for subtraction");
-  print("press 3 for multification");
-  print("press 4 for divison");
-  print("press 5 for module");
-  print("enter value of A:");
-  var a=int.parse(stdin.readLineSync().toString());
-  print("enter value of B:");
-  var b=int.parse(stdin.readLineSync().toString());
+// task_8.dart
+import 'dart:io';
 
-  print("enter the choice");
-  var choice=int.parse(stdin.readLineSync().toString());
-
-  switch(choice){
-    case 1:
-      var c=a+b;
-      print("addition is:$c");
+void main() {
+  print('Simple Calculator');
+  print('Enter the first number:');
+  double num1 = double.parse(stdin.readLineSync()!);
+  
+  print('Enter the second number:');
+  double num2 = double.parse(stdin.readLineSync()!);
+  
+  print('Choose an operation (+, -, *, /):');
+  String? operation = stdin.readLineSync();
+  
+  double result;
+  
+  switch (operation) {
+    case '+':
+      result = num1 + num2;
+      print('The result is: $result');
       break;
-
-    case 2:
-      var d=a-b;
-      print("subtraction is:$d");
+    case '-':
+      result = num1 - num2;
+      print('The result is: $result');
       break;
-
-    case 3:
-      var e=a*b;
-      print("multification is:$e");
+    case '*':
+      result = num1 * num2;
+      print('The result is: $result');
       break;
-
-    case 4:
-      var f=a/b;
-      print("division is:$f");
+    case '/':
+      if (num2 != 0) {
+        result = num1 / num2;
+        print('The result is: $result');
+      } else {
+        print('Error: Division by zero is not allowed.');
+      }
       break;
-
-    case 5:
-      var g=a%b;
-      print("module is:$g");
-      break;
-
     default:
-      print("please choose valid case");
+      print('Invalid operation selected.');
   }
 }
